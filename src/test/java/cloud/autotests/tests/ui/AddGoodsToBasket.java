@@ -49,16 +49,16 @@ public class AddGoodsToBasket extends TestBase {
         step("Open 'https://www.dns-shop.ru/'", () -> {
             open("/");
         });
-        step("Добавление товара в корзину", () -> {
+        step("Ввод текста 'Iphone' в поле поиска и нажать Enter", () -> {
             $(".btn-additional").click();
             $(".logo").click();
-            $("button.button-ui_passive").click();
-        });
-        step("Количество в корзине '1' в меню", () -> {
-            $(".cart-link__badge").shouldHave(text("1"));
-        });
-        step("Ввод текста 'Iphone' в поле поиска и нажать Enter", () -> {
             $("#header-search [name='q']").setValue("Iphone").pressEnter();
+        });
+        step("Кликнуть 'Купить' у первого товара", () -> {
+            $(byText("Купить")).click();
+        });
+        step("Ввод текста 'кофеварка' в поле поиска и нажать Enter", () -> {
+            $("#header-search [name='q']").setValue("кофеварка").pressEnter();
         });
         step("Кликнуть 'Купить' у первого товара", () -> {
             $(byText("Купить")).click();
